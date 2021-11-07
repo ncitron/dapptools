@@ -88,6 +88,7 @@ hardware wallets—even if you use a remote RPC node like Infura's.
   - [`seth code`]
   - [`seth debug`]
   - [`seth estimate`]
+  - [`seth estimate-raw`]
   - [`seth etherscan-source`]
   - [`seth events`]
   - [`seth gas-price`]
