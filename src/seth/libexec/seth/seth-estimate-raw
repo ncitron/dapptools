@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# seth estimate-raw [<options>] <to> <data>
+# seth estimate-raw [<options>] <data>
+
+set -e
+
+if [[ $2 ]]; then
+  TO=$(seth --to-address "$1")
+  DATA=$(seth --to-hexdata "$2")
+else
+  DATA=$(seth --to-hexdata "$1")
+fi
+
+jshon+=(-n {})
+[[ $TO ]] && jshon+=(-s "$TO" -i to)
+jshon+=(-s "$data" -i data)
+# shellcheck disable=SC2207
+jshon+=($(SETH_PARAMS_NO_GAS=1 seth --send-params))
+jshon+=(-i append)
+[[ $ETH_BLOCK = [0-9]* ]] && ETH_BLOCK=$(seth --to-hex "$ETH_BLOCK")
+: "${ETH_BLOCK:=latest}" # geth doesn't like this argument
+[[ $ETH_BLOCK = latest ]] || jshon+=(-s "$ETH_BLOCK" -i append)
+
+seth rpc eth_estimateGas -- "${jshon[@]}"
