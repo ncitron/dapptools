@@ -920,6 +920,7 @@ Show all fields unless `<field>` is given.
 [`seth code`]: #seth-code
 [`seth debug`]: #seth-debug
 [`seth estimate`]: #seth-estimate
+[`seth estimate-raw`]: #seth-estimate-raw
 [`seth etherscan-source`]: #seth-etherscan-source
 [`seth events`]: #seth-events
 [`seth help`]: #seth-help
