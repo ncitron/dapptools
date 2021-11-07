@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-### seth-estimate-raw -- estimate the gas costs of a raw transaction
-### Usage: seth estimate-raw [<options>] <to> <data>
-###    or: seth estimate-raw [<options>] <data>
-###
-### Estimate gas using raw transaction data
 
 set -e
 
